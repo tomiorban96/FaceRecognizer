@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="FaceRecognizer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FaceRecognizer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <!-- Main grid for the view of the application -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Showing the camera preview -->
+        <CaptureElement Name="PreviewControl" Stretch="Uniform" Grid.Row="0" Grid.Column="0" />
+
+        <!-- Button for capturing the photo -->
+        <Button x:Name="CaptureButton" Content="Capture" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="CaptureButton_Click" Grid.Row="1" Grid.Column="0" Style="{StaticResource AccentButtonStyle}"/>
+
+        <!-- Popup to show the captured image -->
+        <Popup x:Name="ImagePopup" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            
+            <!-- Wrapper grid for making the popup the size of the window -->
+            <Grid x:Name="WrapperGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- The last photo captured by the user -->
+                <Image x:Name="Photo" Stretch="Uniform" Grid.Row="0" Grid.Column="0"></Image>
+                
+                <!-- Back button to get back to the capturing screen -->
+                <Button VerticalAlignment="Top" HorizontalAlignment="Left" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+            </Grid>
+        </Popup>
+    </Grid>
+
+
+    
+
+    
+    
+</Page>
